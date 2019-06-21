@@ -1,0 +1,29 @@
+.todo-container{
+	height: 100%;	
+	margin:$standard-margin*10;
+	display: flex;
+	padding:$standard-padding ;
+	overflow: hidden;
+	
+	.todo-box{
+		width: $standard-width;
+		height: 700px;
+		position: relative;
+		padding:$standard-padding ;
+		background-color:#C8E6C9; 
+		margin:$standard-margin;
+		border-radius: 10px;
+		overflow: hidden;
+		// height: 100%;
+		box-shadow: 10px 5px 5px 0 gray;
+	}
+}
+
+
+
+::-webkit-scrollbar{
+	width: 0;
+	height: 0;
+}
+
+

@@ -1,0 +1,31 @@
+.todo-list{
+	height:580px;
+	padding:3px;
+	overflow: hidden;
+	overflow-y: scroll;
+
+	.div-todo-list{
+		background-color: $light-background;
+		margin-top:$standard-margin;
+		height: 50px;
+		box-shadow: 5px 5px 0 0 gray;
+		border-radius:10px;
+		
+		&:hover{
+			background-color: rgb(215, 247, 162);
+		}
+	.checkBox{
+			>span{
+				> svg{
+					width: 15px !important;
+					height: 18px !important;
+				}		
+			}
+		}
+	.delete-btn{
+			float: right;
+			padding: 5px !important;
+	}
+	}
+		
+}
