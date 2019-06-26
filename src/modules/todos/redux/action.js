@@ -2,9 +2,14 @@ import * as actionTypes from './actionTypes';
 import api from '../../../utils/api';
 
 export const getTodoList = (page = 1, limit = 10) => ({
-  type: actionTypes.GET_TODO_LSIT,
-  payload: api.get(`todoslist?page=${page}&limit=${limit}`)
+
+  type: actionTypes.GET_TODO_LIST,
+  payload: api.get(`todoslist?filter=false&page=${page}&limit=${limit}`)
     .then(res => ({ data: res.data, page, limit })),
+});
+export const getTodoTotal = () => ({
+  type: actionTypes.GET_TODO_TOTOAL,
+  payload: api.get('todoslist?filter=false'),
 });
 
 export const addTodo = title => ({
@@ -26,9 +31,22 @@ export const checkTodo = (id, checked) => ({
 
 });
 
-export const getTodoTotalRecords = () => ({
-  type: actionTypes.GET_TODO_TOTAL_RECORD,
-  payload: api.get('todoslist/'),
+export const getDoneTodoList = (page = 1, limit = 10) => ({
+  type: actionTypes.DONE_TODO,
+  payload: api.get(`todoslist?filter=true&page=${page}&limit=${limit}`)
+    .then(res => ({ data: res.data, page, limit })),
+});
+
+export const getDoneTodoTotal = () => ({
+  type: actionTypes.DONE_TODO_TOTOAL,
+  payload: api.get('todoslist?filter=true'),
+});
+
+export const flushTodosList = () => ({
+  type: actionTypes.FLUSH_TODOS_LIST,
+});
+export const flushDoneTodosList = () => ({
+  type: actionTypes.FLUSH_DONO_TODOS_LIST,
 });
 
 
