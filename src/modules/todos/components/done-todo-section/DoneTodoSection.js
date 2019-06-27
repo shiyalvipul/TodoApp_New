@@ -22,18 +22,18 @@ const DonetodoSection = (props) => {
     <div className="todo-box">
       <Header text={headertext} />
       <TodoListContainerSection
-        doneTodos={doneTodos}
+        todos={doneTodos}
         toastText={toastText}
         loading={loading}
         removeTodo={removeTodo}
         checkTodo={checkTodo}
         onHandleClick={onHandleClick}
-        getDoneTodoList={getDoneTodoList}
+        getList={getDoneTodoList}
         getDoneTodoTotal={getDoneTodoTotal}
-        doneTodoPageNo={doneTodoPageNo}
-        doneTodoPageLimit={doneTodoPageLimit}
-        doneTodoTotal={doneTodoTotal}
-        isChecked="true"
+
+        pageNo={doneTodoPageNo}
+        pageSize={doneTodoPageLimit}
+        total={doneTodoTotal}
       />
     </div>
   );
@@ -44,7 +44,6 @@ DonetodoSection.propTypes = {
   toastText: PropTypes.string,
   headertext: PropTypes.string,
   loading: PropTypes.bool,
-
   removeTodo: PropTypes.func,
   checkTodo: PropTypes.func,
   onHandleClick: PropTypes.func,

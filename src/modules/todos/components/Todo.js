@@ -10,8 +10,8 @@ import { fake } from '../../../utils';
 const Todo = (props) => {
   const {
     todos, doneTodos, loading,
-    pageNo, pageLimit,
-    totalRecord,
+    todoPageNo, todoPageSize,
+    todoTotal,
     doneTodoLoading,
     removeTodo, checkTodo,
     onHandleClick, getDoneTodoList,
@@ -31,9 +31,9 @@ const Todo = (props) => {
         toastText="a todo has Completed"
         headertext="Todos"
         loading={loading}
-        pageNo={pageNo}
-        pageLimit={pageLimit}
-        totalRecord={totalRecord}
+        todoPageNo={todoPageNo}
+        todoPageSize={todoPageSize}
+        todoTotal={todoTotal}
         removeTodo={removeTodo}
         checkTodo={checkTodo}
         onHandleClick={onHandleClick}
@@ -44,14 +44,15 @@ const Todo = (props) => {
         toastText="a todo is undo"
         headertext="Done"
         loading={doneTodoLoading}
+        doneTodoPageNo={doneTodoPageNo}
+        doneTodoPageLimit={doneTodoPageLimit}
+        doneTodoTotal={doneTodoTotal}
         removeTodo={removeTodo}
         checkTodo={checkTodo}
         onHandleClick={onHandleClick}
         getDoneTodoList={getDoneTodoList}
         getDoneTodoTotal={getDoneTodoTotal}
-        doneTodoPageNo={doneTodoPageNo}
-        doneTodoPageLimit={doneTodoPageLimit}
-        doneTodoTotal={doneTodoTotal}
+
       />
       <ToastContainer autoClose={2000} transition={Flip} />
     </div>
@@ -65,9 +66,9 @@ Todo.propTypes = {
   loading: PropTypes.bool,
   doneTodoLoading: PropTypes.bool,
 
-  pageNo: PropTypes.number,
-  pageLimit: PropTypes.number,
-  totalRecord: PropTypes.number,
+  todoPageNo: PropTypes.number,
+  todoPageSize: PropTypes.number,
+  todoTotal: PropTypes.number,
 
   removeTodo: PropTypes.func,
   checkTodo: PropTypes.func,
@@ -88,9 +89,9 @@ Todo.defaultProps = {
   doneTodos: [],
   loading: false,
   doneTodoLoading: false,
-  pageNo: 1,
-  pageLimit: 10,
-  totalRecord: 0,
+  todoPageNo: 1,
+  todoPageSize: 10,
+  todoTotal: 0,
   removeTodo: fake,
   checkTodo: fake,
   onHandleClick: fake,

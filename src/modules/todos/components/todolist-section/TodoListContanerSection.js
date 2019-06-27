@@ -7,86 +7,62 @@ import { fake } from '../../../../utils';
 const TodoListContainerSection = (props) => {
   const {
     todos,
-    doneTodos,
     toastText,
-    loading, pageNo,
-    pageLimit, totalRecord,
+    loading,
     removeTodo, checkTodo,
     onHandleClick,
-    getDoneTodoList,
-    getDoneTodoTotal,
-    doneTodoPageNo,
-    doneTodoPageLimit,
-    doneTodoTotal,
-    getTodoList,
-    isChecked,
-
+    getList,
+    pageNo,
+    pageSize,
+    total,
 
   } = props;
   return (
     <TodoListSection
       todos={todos}
-      doneTodos={doneTodos}
       toastText={toastText}
       loading={loading}
-      pageNo={pageNo}
-      pageLimit={pageLimit}
-      totalRecord={totalRecord}
       removeTodo={removeTodo}
       checkTodo={checkTodo}
       onHandleClick={onHandleClick}
-      getDoneTodoList={getDoneTodoList}
-      getDoneTodoTotal={getDoneTodoTotal}
-      doneTodoPageNo={doneTodoPageNo}
-      doneTodoPageLimit={doneTodoPageLimit}
-      doneTodoTotal={doneTodoTotal}
-      getTodoList={getTodoList}
-      isChecked={isChecked}
+
+      getList={getList}
+      pageNo={pageNo}
+      pageSize={pageSize}
+      total={total}
+
     />
   );
 };
 
 TodoListContainerSection.propTypes = {
   todos: PropTypes.instanceOf(Array),
-  doneTodos: PropTypes.instanceOf(Array),
   toastText: PropTypes.string,
   loading: PropTypes.bool,
-  pageNo: PropTypes.number,
-  pageLimit: PropTypes.number,
-  totalRecord: PropTypes.number,
   removeTodo: PropTypes.func,
   checkTodo: PropTypes.func,
   onHandleClick: PropTypes.func,
-  getDoneTodoList: PropTypes.func,
-  getDoneTodoTotal: PropTypes.func,
-  doneTodoPageNo: PropTypes.number,
-  doneTodoPageLimit: PropTypes.number,
-  doneTodoTotal: PropTypes.number,
-  getTodoList: PropTypes.func,
-  isChecked: PropTypes.string,
 
+  getList: PropTypes.func,
+  pageNo: PropTypes.number,
+  pageSize: PropTypes.number,
+  total: PropTypes.number,
 
 };
 
 TodoListContainerSection.defaultProps = {
   todos: [],
-  doneTodos: [],
-
   toastText: '',
   loading: false,
-  pageNo: 1,
-  pageLimit: 10,
-  totalRecord: 0,
   removeTodo: fake,
   checkTodo: fake,
   onHandleClick: fake,
-  getDoneTodoList: fake,
-  getDoneTodoTotal: fake,
-  doneTodoPageNo: 1,
-  doneTodoPageLimit: 10,
-  doneTodoTotal: 0,
-  getTodoList: fake,
-  isChecked: '',
+
+  getList: fake,
+  pageNo: 1,
+  pageSize: 10,
+  total: 0,
+
 
 };
 

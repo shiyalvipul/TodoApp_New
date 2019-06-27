@@ -54,9 +54,9 @@ class TodoContainer extends Component {
   render() {
     const {
       todos, doneTodos, loading,
-      pageNo,
-      pageLimit,
-      totalRecord,
+      todoPageNo,
+      todoPageSize,
+      todoTotal,
       doneTodoLoading,
       getDoneTodoList,
       getDoneTodoTotal,
@@ -72,9 +72,11 @@ class TodoContainer extends Component {
         doneTodos={doneTodos.filter(donetodo => donetodo.isDone)}
         loading={loading}
         doneTodoLoading={doneTodoLoading}
-        pageNo={pageNo}
-        pageLimit={pageLimit}
-        totalRecord={totalRecord}
+
+        todoPageNo={todoPageNo}
+        todoPageSize={todoPageSize}
+        todoTotal={todoTotal}
+
         removeTodo={this.removeTodo}
         checkTodo={this.checkTodo}
         onHandleClick={this.onHandleClick}
@@ -97,9 +99,9 @@ TodoContainer.propTypes = {
   loading: PropTypes.bool,
   doneTodoLoading: PropTypes.bool,
 
-  pageNo: PropTypes.number,
-  pageLimit: PropTypes.number,
-  totalRecord: PropTypes.number,
+  todoPageNo: PropTypes.number,
+  todoPageSize: PropTypes.number,
+  todoTotal: PropTypes.number,
 
   doneTodoPageNo: PropTypes.number,
   doneTodoPageLimit: PropTypes.number,
@@ -122,9 +124,9 @@ TodoContainer.defaultProps = {
   doneTodos: [],
   loading: false,
   doneTodoLoading: false,
-  pageNo: 1,
-  pageLimit: 10,
-  totalRecord: 0,
+  todoPageNo: 1,
+  todoPageSize: 10,
+  todoTotal: 0,
 
   doneTodoPageNo: 1,
   doneTodoPageLimit: 10,
@@ -146,9 +148,9 @@ TodoContainer.defaultProps = {
 const mapStateToProps = state => ({
   loading: state.todo.requestState === RequestStates.loading,
   todos: state.todo.todos,
-  totalRecord: state.todo.TotalRecords,
-  pageNo: state.todo.pageNo,
-  pageLimit: state.todo.limit,
+  todoTotal: state.todo.TotalRecords,
+  todoPageNo: state.todo.pageNo,
+  todoPageSize: state.todo.limit,
 
   doneTodoLoading: state.todo.requestStateDonetod === RequestStates.loading,
   doneTodos: state.todo.DoneTodoRecord,

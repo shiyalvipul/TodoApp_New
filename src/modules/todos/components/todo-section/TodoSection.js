@@ -10,8 +10,8 @@ import { fake } from '../../../../utils';
 const TodoSection = (props) => {
   const {
     todos, toastText,
-    loading, pageNo,
-    pageLimit, totalRecord,
+    loading, todoPageNo,
+    todoPageSize, todoTotal,
     headertext, removeTodo,
     checkTodo, onHandleClick,
     getTodoList,
@@ -25,16 +25,15 @@ const TodoSection = (props) => {
         todos={todos}
         toastText={toastText}
         loading={loading}
-        pageNo={pageNo}
-        pageLimit={pageLimit}
-        totalRecord={totalRecord}
+
+        pageNo={todoPageNo}
+        pageSize={todoPageSize}
+        total={todoTotal}
+
         removeTodo={removeTodo}
         checkTodo={checkTodo}
         onHandleClick={onHandleClick}
-        getTodoList={getTodoList}
-        isChecked="false"
-
-
+        getList={getTodoList}
       />
     </div>
   );
@@ -46,9 +45,9 @@ TodoSection.propTypes = {
   headertext: PropTypes.string,
 
   loading: PropTypes.bool,
-  pageNo: PropTypes.number,
-  pageLimit: PropTypes.number,
-  totalRecord: PropTypes.number,
+  todoPageNo: PropTypes.number,
+  todoPageSize: PropTypes.number,
+  todoTotal: PropTypes.number,
 
   removeTodo: PropTypes.func,
   checkTodo: PropTypes.func,
@@ -61,14 +60,13 @@ TodoSection.defaultProps = {
   toastText: '',
   headertext: '',
   loading: false,
-  pageNo: 1,
-  pageLimit: 10,
-  totalRecord: 0,
+  todoPageNo: 1,
+  todoPageSize: 10,
+  todoTotal: 0,
   removeTodo: fake,
   checkTodo: fake,
   onHandleClick: fake,
   getTodoList: fake,
 };
-
 
 export default TodoSection;
